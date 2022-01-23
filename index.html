@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDK</title>
+    <script src="./SDK.js" defer></script>
     <script src="./main.js" defer></script>
     <style>
         #block {
@@ -16,20 +17,10 @@
             font-size: 54px;
         }
     </style>
-    <script src="./main.js"></script>
-
-    <script>
-        const kiev = new Weather('Kiev');
-        kiev.init.then((data) => {
-            document.getElementById('block').innerHTML = data.temp_c;
-        });
-    </script>
-
 </head>
 
 <body>
     <div id="block"></div>
-    </script>
 </body>
 
 </html>
