@@ -1,23 +1,25 @@
-//     fetch('http://api.weatherapi.com/v1/current.json?key=b677082ac19f45aca07212645220401&q=Kiev&aqi=no')
-//   .then((response) => {
-//     return response.json();
-//   })
-//   .then((data) => {
-//     console.log(data);
-//   });
-
-function Weather (city) {
+function Weather(city, token) {
   this.city = city;
-  this.init = fetch("http://api.weatherapi.com/v1/current.json?key=b677082ac19f45aca07212645220401&q=Kiev&aqi=no")
-    .then(response => response.json())
-    .then(data => { 
-      this.temp = data.current.temp_c;
-      this.tempF = data.current.temp_f;
-      return this;
-
-    });
+  this.token = token;
 }
+
+Weather.prototype.init = function () {
+  return fetch(
+    (`http://api.weatherapi.com/v1/current.json?key=${this.token}&q=${this.city}&aqi=no`)
+  )
+    .then(function (resp) {
+      return resp.json()
+    })
+    .then(function (data) {
+      const itm = {
+        temp: data.current.temp_c
+      };
+      return itm;
+    });
+
     
+};
+
 
 
 
